@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:real_estate_app/Pages/ApartPages/apart_page.dart';
 import 'package:real_estate_app/Pages/add_apart_page.dart';
 import 'package:real_estate_app/Pages/home_page.dart';
+import 'package:real_estate_app/Pages/LoginPages/login_page.dart';
 import 'package:real_estate_app/Pages/profile_page.dart';
 import 'package:real_estate_app/NavBar/nav_bar.dart';
 import 'package:real_estate_app/NavBar/nav_model.dart';
@@ -41,7 +42,7 @@ class _MyAppState extends State<MyApp> {
       NavModel(page: const Anasayfa(), navKey: anasayfaNavKey),
       NavModel(page: const Kaydedilenler(), navKey: kaydedilenlerNavKey),
       NavModel(page: const Mesajlar(), navKey: mesajlarNavKey),
-      NavModel(page: const Profil(), navKey: profilNavKey),
+      NavModel(page: const Login(), navKey: profilNavKey),
     ];
   }
 

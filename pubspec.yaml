@@ -60,19 +60,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/apart.jpg
-    - images/konum.png
-    - images/konum_ant.png
-    - images/house_1_5/h1.jpg
-    - images/house_1_5/h1_full.jpg
-    - images/house_1_5/h2.jpg
-    - images/house_1_5/h2_full.jpg
-    - images/house_1_5/h3.jpg
-    - images/house_1_5/h3_full.jpg
-    - images/house_1_5/h4.jpg
-    - images/house_1_5/h4_full.jpg
-    - images/house_1_5/h5.jpg
-    - images/house_1_5/h5_full.jpg
+    - images/
+    - images/house_1_5/
+    - images/login/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
