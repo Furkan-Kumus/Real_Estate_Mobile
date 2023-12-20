@@ -57,13 +57,22 @@ class Body extends StatelessWidget {
             ),
             RoundedButton(
               text: "Üye Ol",
-              press: () {},
+              press: () {
+                Navigator.pop(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Login();
+                    },
+                  ),
+                );
+              },
               color: Colors.deepPurpleAccent.withOpacity(0.8),
             ),
             AlreadyHaveAnAccountCheck(
               login: false,
               press: () {
-                Navigator.push(
+                Navigator.pop(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
