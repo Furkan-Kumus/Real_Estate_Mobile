@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
       NavModel(page: const Anasayfa(), navKey: anasayfaNavKey),
       NavModel(page: const Kaydedilenler(), navKey: kaydedilenlerNavKey),
       NavModel(page: const Mesajlar(), navKey: mesajlarNavKey),
-      NavModel(page: const Login(), navKey: profilNavKey),
+      NavModel(page: Login(), navKey: profilNavKey),
     ];
   }
 
