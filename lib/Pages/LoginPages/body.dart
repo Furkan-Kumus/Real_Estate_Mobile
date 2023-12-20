@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:real_estate_app/Pages/LoginPages/rounded_button.dart';
 import 'package:real_estate_app/Pages/LoginPages/rounded_input_field.dart';
 import 'package:real_estate_app/Pages/LoginPages/rounded_password_field.dart';
-import 'package:real_estate_app/constants.dart';
+import 'package:real_estate_app/Pages/SignUp/sign_up_page.dart';
 import 'already_have_an_account_check.dart';
 import 'background.dart';
 
@@ -25,15 +25,20 @@ class Body extends StatelessWidget {
               "Giriş Yap",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: size.height * 0.03,),
+            SizedBox(
+              height: size.height * 0.03,
+            ),
             SvgPicture.asset(
               'images/login/login.svg',
               height: size.height * 0.35,
             ),
-            SizedBox(height: size.height * 0.01,),
+            SizedBox(
+              height: size.height * 0.01,
+            ),
             RoundedInputField(
               hintText: "Mail Adresinizi Giriniz",
               onChanged: (value) {},
+              icon: Icons.person,
             ),
             RoundedPasswordField(
               onChanged: (value) {},
@@ -44,7 +49,16 @@ class Body extends StatelessWidget {
               color: Colors.deepPurpleAccent.withOpacity(0.8),
             ),
             AlreadyHaveAnAccountCheck(
-              press: () {},
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return SignUp();
+                    },
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -52,6 +66,3 @@ class Body extends StatelessWidget {
     );
   }
 }
-
-
-
