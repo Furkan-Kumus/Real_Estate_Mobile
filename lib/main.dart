@@ -34,6 +34,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
+
+
     super.initState();
     items = [
       NavModel(page: const Anasayfa(), navKey: anasayfaNavKey),
@@ -45,6 +47,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+
+    MediaQueryData queryData = MediaQuery.of(context);
+    double keyboardHeight = queryData.viewInsets.bottom;
+
     return WillPopScope(
       onWillPop: () {
         if (items[_selectedTab].navKey.currentState?.canPop() ?? false) {
@@ -71,15 +77,18 @@ class _MyAppState extends State<MyApp> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Container(
+          alignment:keyboardHeight != 0 ? Alignment(0, 200) : null,
           margin: const EdgeInsets.only(top: 10),
-          width: 64,
-          height: 64,
+          width: 58,
+          height: 58,
           child: FloatingActionButton(
+
+            isExtended: true,
             backgroundColor: Colors.white,
             elevation: 0,
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ApartEkle())),
             shape: RoundedRectangleBorder(
-              side: const BorderSide(width: 3, color: Colors.purpleAccent),
+              side: const BorderSide(width: 2, color: Colors.purpleAccent),
               borderRadius: BorderRadius.circular(100),
             ),
             child: const Icon(

@@ -1,4 +1,5 @@
 import 'package:real_estate_app/Pages/add_apart_page.dart';
+import 'package:real_estate_app/Pages/home_page.dart';
 import 'package:real_estate_app/Pages/sign_up_page.dart';
 import 'package:real_estate_app/main.dart';
 import 'package:flutter/material.dart';
@@ -80,17 +81,23 @@ class _ProfilState extends State<Profil> {
                     // Örneğin, yeni bir sayfaya yönlendirme yapabilirsiniz.
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ApartEkle()),
+                      MaterialPageRoute(builder: (context) => Anasayfa()),
                     );
                   }
                   // Örneğin, basit bir kontrol, kullanıcı adı ve şifreyi kontrol ediyoruz.
                   if (username == 'admin' && password == '1234') {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('*Giriş Başarılı'),
+                      ),
+                    );
                     // Giriş başarılıysa, başka bir sayfaya yönlendirme yapabilirsiniz.
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => ApartEkle()),
+                      MaterialPageRoute(builder: (context) => Anasayfa()),
                     );
-                  } else {
+                  }
+                  else {
                     // Giriş başarısızsa, kullanıcıyı bilgilendirme.
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
@@ -107,4 +114,5 @@ class _ProfilState extends State<Profil> {
       ),
     );
   }
+
 }
