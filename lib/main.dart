@@ -3,13 +3,16 @@ import 'package:real_estate_app/Pages/ApartPages/apart_page.dart';
 import 'package:real_estate_app/Pages/add_apart_page.dart';
 import 'package:real_estate_app/Pages/home_page.dart';
 import 'package:real_estate_app/Pages/LoginPages/login_page.dart';
-import 'package:real_estate_app/Pages/profile_page.dart';
 import 'package:real_estate_app/NavBar/nav_bar.dart';
 import 'package:real_estate_app/NavBar/nav_model.dart';
 import 'Pages/messages_page.dart';
 import 'Pages/saved_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(
     MaterialApp(
       home: MyApp(),

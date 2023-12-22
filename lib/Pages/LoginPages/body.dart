@@ -8,9 +8,8 @@ import 'already_have_an_account_check.dart';
 import 'background.dart';
 
 class Body extends StatelessWidget {
-  const Body({
-    Key? key,
-  }) : super(key: key);
+  final _mailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +35,12 @@ class Body extends StatelessWidget {
               height: size.height * 0.01,
             ),
             RoundedInputField(
+              controller: _mailController,
               hintText: "Mail Adresinizi Giriniz",
-              onChanged: (value) {},
               icon: Icons.person,
             ),
             RoundedPasswordField(
+              controller: _passwordController ,
               onChanged: (value) {},
             ),
             RoundedButton(
