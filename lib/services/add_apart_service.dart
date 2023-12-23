@@ -18,7 +18,7 @@ class AddService{
       await FirebaseFirestore.instance
           .collection('aparts')
           .doc(userId)
-          .collection('aparts $userId')
+          .collection('UserAparts')
           .add({
         'il': il,
         'ilce': ilce,
