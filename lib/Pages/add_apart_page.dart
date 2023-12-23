@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:real_estate_app/Pages/home_page.dart';
-
+import 'package:real_estate_app/services/add_apart_service.dart';
 
 class ApartEkle extends StatefulWidget {
   const ApartEkle({super.key});
@@ -18,6 +17,7 @@ class _ApartEkle extends State<ApartEkle> {
   String _odasayisi = 'Yok';
   String _kiralanmaSekliController = 'Yok';
 
+
   void _showAlertDialog(String message) {
     showDialog(
       context: context,
@@ -33,7 +33,9 @@ class _ApartEkle extends State<ApartEkle> {
           ),
         ],
       ),
-    );}
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +54,7 @@ class _ApartEkle extends State<ApartEkle> {
                 decoration: InputDecoration(labelText: 'Il'),
               ),SizedBox(height: 16.0),
               TextField(
-                controller: _ilController,
+                controller: _ilceController,
                 decoration: InputDecoration(labelText: 'Ilce'),
               ),SizedBox(height: 16.0),
               TextField(
@@ -109,21 +111,25 @@ class _ApartEkle extends State<ApartEkle> {
               ElevatedButton(
                 onPressed: () {
 
-                  // Burada üye olma işlemini gerçekleştirebilirsiniz.
-                  String il=_ilController.text;
-                  String ilce=_ilceController.text;
-                  String mahalle = _mahalleController.text;
-                  String metreKare = _metrekareController.text;
-                  String fotografUrl = _fotografController.text;
-                  if (il.isEmpty||ilce.isEmpty||mahalle.isEmpty ||metreKare.isEmpty|| fotografUrl.isEmpty) {
+                  if (_ilController.text.isEmpty || _ilceController.text.isEmpty || _mahalleController.text.isEmpty || _metrekareController.text.isEmpty || _fotografController.text.isEmpty) {
                     _showAlertDialog('Lütfen tüm alanları doldurun.');
-                  } else {
+                  }
+                  else {
+                    String currentUserId = AddService().getUserId();
+                    print(currentUserId);
 
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => Anasayfa()),
+                    AddService().AddApart(
+                        userId: currentUserId,
+                        il:  _ilController.text,
+                        ilce: _ilceController.text,
+                        mahalle: _mahalleController.text,
+                        metrekare: _metrekareController.text,
+                        odaSayi: _odasayisi,
+                        kiraSuresi: _kiralanmaSekliController,
+                        fotoUrl: _fotografController.text,
                     );
                   }
+
                 },
                 child: Text('Apart Ekle'),
               ),

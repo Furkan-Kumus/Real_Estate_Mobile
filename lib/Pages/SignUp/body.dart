@@ -14,33 +14,31 @@ import 'or_divider.dart';
 
 class Body extends StatelessWidget {
   final _usernameController = TextEditingController();
-  final _mailController = TextEditingController();
+  final _emailController = TextEditingController();
   final _phoneNumberController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  // @override
-  // void dispose(){
-  //   _usernameController.dispose();
-  //   _mailController.dispose();
-  //   _phoneNumberController.dispose();
-  //   _passwordController.dispose();
-  //   super.dispose();
-  // }
+  Body({super.key});
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SingleChildScrollView(
+    return Center(
       child: Background(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
+          shrinkWrap: true,
+          reverse: true,
+          padding: EdgeInsets.symmetric(horizontal: 30.0),
           children: <Widget>[
-            Text(
-              "Üye Ol",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
             SizedBox(
-              height: size.height * 0.01,
+              height: size.height * 0.07,
+            ),
+            Container(
+              alignment: Alignment.center,
+              child: Text(
+                "Üye Ol",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
             SvgPicture.asset(
               'images/sign_up/signup.svg',
@@ -55,7 +53,7 @@ class Body extends StatelessWidget {
               icon: Icons.person,
             ),
             RoundedInputField(
-              controller: _mailController,
+              controller: _emailController,
               hintText: "Mail Adresinizi Giriniz",
               icon: Icons.mail,
             ),
@@ -69,7 +67,7 @@ class Body extends StatelessWidget {
             ),
             RoundedButton(
               text: "Üye Ol",
-              press: () => AuthService().registerUser(username: _usernameController, email: _mailController, phoneNumber: _phoneNumberController, password: _passwordController),
+              press: () => AuthService().singUp(context, username: _usernameController.text, email: _emailController.text, phoneNumber: _phoneNumberController.text, password: _passwordController.text),
               color: Colors.deepPurpleAccent.withOpacity(0.8),
             ),
             AlreadyHaveAnAccountCheck(
@@ -104,9 +102,9 @@ class Body extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: size.height * 0.1,
+              height: size.height * 0.12,
             ),
-          ],
+          ].reversed.toList(),
         ),
       ),
     );

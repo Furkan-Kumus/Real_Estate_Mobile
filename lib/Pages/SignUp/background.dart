@@ -35,6 +35,6 @@ class Background extends StatelessWidget {
           child,
         ],
       ),
-    );;
+    );
   }
 }
