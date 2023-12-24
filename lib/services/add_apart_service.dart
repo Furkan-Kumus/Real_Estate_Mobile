@@ -28,6 +28,18 @@ class AddService{
         'kiraSuresi': kiraSuresi,
         'fotoUrl': fotoUrl,
       });
+
+      await FirebaseFirestore.instance
+          .collection('AllAparts')
+          .add({
+        'il': il,
+        'ilce': ilce,
+        'mahalle': mahalle,
+        'metrekare': metrekare,
+        'odaSayi': odaSayi,
+        'kiraSuresi': kiraSuresi,
+        'fotoUrl': fotoUrl,
+      });
     } catch (e) {
       print('Hata: $e');
     }

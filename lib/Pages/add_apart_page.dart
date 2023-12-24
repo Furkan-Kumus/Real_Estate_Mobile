@@ -116,7 +116,6 @@ class _ApartEkle extends State<ApartEkle> {
                   }
                   else {
                     String currentUserId = AddService().getUserId();
-                    print(currentUserId);
 
                     AddService().AddApart(
                         userId: currentUserId,
