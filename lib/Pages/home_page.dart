@@ -182,7 +182,7 @@ class _AnasayfaState extends State<Anasayfa> {
                   bottomRight: Radius.circular(30.0),
                 ),
                 image: DecorationImage(
-                  image: AssetImage("images/house_1_5/h1_full.jpg"), // Firestore'dan çekilen resim alanı
+                  image: NetworkImage(record['fotoUrl']), // Firestore'dan çekilen resim alanı
                   fit: BoxFit.cover,
                 ),
               ),
@@ -223,7 +223,7 @@ class _AnasayfaState extends State<Anasayfa> {
                         color: Colors.white,
                       ),
                       Text(
-                        record['mahalle'], // Firestore'dan çekilen konum alanı
+                        record['ilce'] + ", " + record['mahalle'], // Firestore'dan çekilen konum alanı
                         style: TextStyle(
                           color: Colors.white,
                         ),
