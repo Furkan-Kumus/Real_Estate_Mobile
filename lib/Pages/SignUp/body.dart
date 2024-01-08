@@ -67,7 +67,7 @@ class Body extends StatelessWidget {
             ),
             RoundedButton(
               text: "Üye Ol",
-              press: () => AuthService().singUp(context, username: _usernameController.text, email: _emailController.text, phoneNumber: _phoneNumberController.text, password: _passwordController.text),
+              press: () => AuthService().singUp(context, username: _usernameController.text.trim(), email: _emailController.text.trim(), phoneNumber: _phoneNumberController.text.trim(), password: _passwordController.text.trim()),
               color: Colors.deepPurpleAccent.withOpacity(0.8),
             ),
             AlreadyHaveAnAccountCheck(

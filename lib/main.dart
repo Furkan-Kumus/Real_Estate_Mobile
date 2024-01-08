@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:real_estate_app/Pages/ApartPages/apart_page.dart';
+import 'package:real_estate_app/Pages/WelcomePage/profile_page.dart';
 import 'package:real_estate_app/Pages/add_apart_page.dart';
 import 'package:real_estate_app/Pages/home_page.dart';
 import 'package:real_estate_app/Pages/LoginPages/login_page.dart';
@@ -45,7 +46,7 @@ class _MyAppState extends State<MyApp> {
       NavModel(page: const Anasayfa(), navKey: anasayfaNavKey),
       NavModel(page: const Kaydedilenler(), navKey: kaydedilenlerNavKey),
       NavModel(page: const Mesajlar(), navKey: mesajlarNavKey),
-      NavModel(page: Login(), navKey: profilNavKey),
+      NavModel(page: Profil(), navKey: profilNavKey),
     ];
   }
 

@@ -115,18 +115,33 @@ class _ApartEkle extends State<ApartEkle> {
                     _showAlertDialog('Lütfen tüm alanları doldurun.');
                   }
                   else {
-                    String currentUserId = AddService().getUserId();
+                    String? currentUserId = AddService().getUserId();
 
-                    AddService().AddApart(
+                    if (currentUserId != null) {
+                      AddService().AddApart(
                         userId: currentUserId,
-                        il:  _ilController.text,
+                        il: _ilController.text,
                         ilce: _ilceController.text,
                         mahalle: _mahalleController.text,
                         metrekare: _metrekareController.text,
                         odaSayi: _odasayisi,
                         kiraSuresi: _kiralanmaSekliController,
                         fotoUrl: _fotografController.text,
-                    );
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Apart Eklendi !'),
+                        ),
+                      );
+                      Navigator.pop(context);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Apart eklemek için lütfen giriş yapın!'),
+                        ),
+                      );
+                    }
+
                   }
 
                 },
